@@ -1,0 +1,33 @@
+Arrays:
+	Grow
+	Sort:
+		-Merge Sort
+		-Linear Sort
+		-Heapsort
+		-Insertion Sort
+	Search:
+		-Linear Search
+		-Binary Search
+
+Binary Search Tree:
+
+Shapes:
+	2D
+		Area
+		Perimeter
+	3D
+		Volume
+		Surface Area
+
+Arrays
+Weather:
+
+Kinematics
+
+Dynamics
+
+Chess
+
+
+
+

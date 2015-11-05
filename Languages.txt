@@ -1,0 +1,10 @@
+Known:
+C
+Java
+Ruby
+Python
+
+To Learn:
+C# 
+.net
+JS (ember?)
