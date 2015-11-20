@@ -55,9 +55,9 @@ public class ChessGame
         ChessPiece piece = new Bishop(xCoordinate,yCoordinate,isWhite);
         switch(pieceType)
                 {
-//                    case KING:
-//                        piece = new King(xCoordinate,yCoordinate,isWhite,board);   
-//                        break;
+                    case KING:
+                        piece = new King(xCoordinate,yCoordinate,isWhite);   
+                        break;
                     case QUEEN:
                         piece = new Queen(xCoordinate,yCoordinate,isWhite);
                         break;
@@ -70,9 +70,9 @@ public class ChessGame
                     case ROOK:
                         piece = new Rook(xCoordinate,yCoordinate,isWhite);
                         break;
-//                    case PAWN:
-//                        piece = new Pawn(xCoordinate,yCoordinate,isWhite,board);
-//                        break;      
+                    case PAWN:
+                        piece = new Pawn(xCoordinate,yCoordinate,isWhite);
+                        break;      
                 }
         return piece;
     }

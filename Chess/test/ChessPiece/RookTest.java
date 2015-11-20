@@ -35,53 +35,53 @@ public class RookTest {
         System.out.println("validMove");
         int xCoordinate = 1;
         int yCoordinate = 1;
+        
+        Integer[][] move = {{0,0,1,1},
+                        {2,2,1,1},
+                        {1,0,1,1},
+                        {0,1,1,1},
+                        {2,1,1,1},
+                        {1,2,1,1},
+                        {1,1,1,1},
+                        {0,0,-1,0},
+                        {0,0,0,-1},
+                        {7,7,8,7},
+                        {7,7,7,8}};
+        
+        Boolean[] pieceColor = {false,
+                               false,
+                               false,
+                               false,
+                               false,
+                               false,
+                               false,
+                               false,
+                               false,
+                               false,
+                               false};
+        
+        Boolean[] expResult = {false,
+                               false,
+                               true,
+                               true,
+                               true,
+                               true,
+                               false,
+                               false,
+                               false,
+                               false,
+                               false};
+        
         Rook instance = null;
-        boolean expResult;
         boolean result;
         
-        expResult = false;
-        result = (new Rook(0,0,false)).validMove(xCoordinate, yCoordinate);
-        assertEquals(expResult, result);
+        for(int i = 0; i < expResult.length; i ++)
+        {
+            result = (new Rook(move[i][0],move[i][1],pieceColor[i])).validMove(move[i][2],move[i][3]);
+            assertEquals(expResult[i],result);
+        }
         
-        expResult = false;
-        result = (new Rook(2,2,false)).validMove(xCoordinate, yCoordinate);
-        assertEquals(expResult, result);
         
-        expResult = true;
-        result = (new Rook(1,0,false)).validMove(xCoordinate, yCoordinate);
-        assertEquals(expResult, result);
-        
-        expResult = true;
-        result = (new Rook(0,1,false)).validMove(xCoordinate, yCoordinate);
-        assertEquals(expResult, result);
-        
-        expResult = true;
-        result = (new Rook(2,1,false)).validMove(xCoordinate, yCoordinate);
-        assertEquals(expResult, result);
-        
-        expResult = true;
-        result = (new Rook(1,2,false)).validMove(xCoordinate, yCoordinate);
-        assertEquals(expResult, result);
-        
-        expResult = false;
-        result = (new Rook(1,1,false)).validMove(xCoordinate, yCoordinate);
-        assertEquals(expResult, result);
-        
-        expResult = false;
-        result = (new Rook(0,0,false)).validMove(-1, 0);
-        assertEquals(expResult, result);
-        
-        expResult = false;
-        result = (new Rook(0,0,false)).validMove(0, -1);
-        assertEquals(expResult, result);
-        
-        expResult = false;
-        result = (new Rook(7,7,false)).validMove(8, 7);
-        assertEquals(expResult, result);
-        
-        expResult = false;
-        result = (new Rook(7,7,false)).validMove(7, 8);
-        assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
