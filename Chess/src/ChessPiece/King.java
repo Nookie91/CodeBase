@@ -13,19 +13,26 @@ import ChessBoard.ChessBoard;
 
 public class King extends ChessPiece
 {
-    private boolean hasNotMoved;
+
     public King(int xCoordinate, int yCoordinate, boolean isWhite)
     {
         super(xCoordinate, yCoordinate, isWhite, PieceType.KING);
-        hasNotMoved = true;
     }
-    
+
     @Override
-    public boolean validMove(int xCoordinate, int yCoordinate)
+    public boolean isMoveBlocked(int xCoordinate, int yCoordinate, ChessBoard chessBoard) {
+        return false;
+    }
+
+    @Override
+    public boolean validMove(int xCoordinate, int yCoordinate, ChessBoard chessBoard)
     {
         int deltaX, deltaY;
         if(!ChessBoard.isValidSquare(xCoordinate, yCoordinate))
         {
+            return false;
+        }
+        if (!isSquareTakeable(xCoordinate, yCoordinate, chessBoard)) {
             return false;
         }
         
@@ -33,16 +40,7 @@ public class King extends ChessPiece
         deltaY = yCoordinate - getYCoordinate();
         return ((Math.abs(deltaX) < 2) && (Math.abs(deltaY) < 2));
     }
-    
-    public boolean getHasNotMoved()
-    {
-        return hasNotMoved;
-    }
-    
-    public void setHasMoved()
-    {
-        hasNotMoved = false;
-    }
+
 
     /**
      * @param args the command line arguments
