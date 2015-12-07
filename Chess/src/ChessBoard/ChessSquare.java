@@ -1,5 +1,7 @@
 package ChessBoard;
 
+import ChessPiece.*;
+
 /**
  * author: Nicholas James Cook
  * package ChessBoard;
@@ -14,8 +16,7 @@ public class ChessSquare
     public final int xCoordinate;
     public final int yCoordinate;
     public final boolean isBlack;
-    private int[] holdsPiece;
-    private boolean isWhitePiece;
+    private ChessPiece holdsPiece;
     
     public ChessSquare(int xCoordinate, int yCoordinate)
     {
@@ -32,16 +33,15 @@ public class ChessSquare
           
     public boolean getHasWhitePiece()
     {
-        return isWhitePiece;
+        return holdsPiece.getIsWhite();
     }
     
-    public void setHasPiece(int[] holdsPiece, boolean isWhitePiece)
-    {
-        this.isWhitePiece = isWhitePiece;
+    public void setHasPiece(ChessPiece holdsPiece)
+    {   
         this.holdsPiece = holdsPiece;
     }
     
-    public int[] getHeldPiece()
+    public ChessPiece getHeldPiece()
     {
         return holdsPiece;
     }

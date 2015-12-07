@@ -1,5 +1,6 @@
 package ChessBoard;
 
+import ChessPiece.*;
 /**
  * author: Nicholas James Cook
  * package ChessBoard;
@@ -38,12 +39,12 @@ public class ChessBoard
         return chessBoard[xCoordinate][yCoordinate].getIsUnoccupied();
     }
     
-    public void setHasPiece(int xCoordinate, int yCoordinate, int[] holdsPiece, boolean isWhitePiece)
+    public void setHasPiece(int xCoordinate, int yCoordinate, ChessPiece holdsPiece)
     {
-        chessBoard[xCoordinate][yCoordinate].setHasPiece(holdsPiece, isWhitePiece);
+        chessBoard[xCoordinate][yCoordinate].setHasPiece(holdsPiece);
     }
     
-    public int[] getHeldPiece(int xCoordinate, int yCoordinate)
+    public ChessPiece getHeldPiece(int xCoordinate, int yCoordinate)
     {
         return chessBoard[xCoordinate][yCoordinate].getHeldPiece();
     }

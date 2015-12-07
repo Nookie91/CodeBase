@@ -1,6 +1,6 @@
 package ChessPiece;
 
-import ChessBoard.ChessBoard;
+import ChessBoard.*;
 
 /**
  * author: Nicholas James Cook
@@ -75,10 +75,18 @@ public abstract class ChessPiece
 
     public boolean moveTo(int xCoordinate, int yCoordinate, ChessBoard chessBoard)
     {
-        if (validMove(xCoordinate, yCoordinate, chessBoard))
+        if (validMove(xCoordinate, yCoordinate, chessBoard) && 
+            !isMoveBlocked(xCoordinate,yCoordinate,chessBoard))
         {
             this.xCoordinate = xCoordinate;
             this.yCoordinate = yCoordinate;
+
+            if (!chessBoard.isSquareUnoccupied(xCoordinate,yCoordinate)) 
+            {
+                chessBoard.getHeldPiece(xCoordinate,yCoordinate).removePiece(chessBoard);  
+            }
+
+            chessBoard.setHasPiece(xCoordinate,yCoordinate,this);
             return true;
         }
         else

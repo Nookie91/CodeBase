@@ -35,11 +35,17 @@ public class ChessGame
                 for(int[] j: i.getStartingPosition())
                 {
                     if(player == WHITEPLAYER)
+                    {
                         pieces[player][index] = createPiece(j[0],j[1],
                                 i,true);
+                        board.setHasPiece(j[0],j[1],pieces[player][index]);
+                    }
                     else
+                    {
                         pieces[player][index] = createPiece(j[0],8-j[1],
                                 i,false);
+                        board.setHasPiece(j[0],8-j[1],pieces[player][index]);
+                    }
                     index ++;
                 }
                 
@@ -52,7 +58,7 @@ public class ChessGame
                              int yCoordinate, PieceType pieceType, 
                              boolean isWhite)
     {
-        ChessPiece piece = new Bishop(xCoordinate,yCoordinate,isWhite);
+        ChessPiece piece = null;
         switch(pieceType)
                 {
                     case KING:
@@ -74,6 +80,7 @@ public class ChessGame
                         piece = new Pawn(xCoordinate,yCoordinate,isWhite);
                         break;      
                 }
+
         return piece;
     }
     /**
