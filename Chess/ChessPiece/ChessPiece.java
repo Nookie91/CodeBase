@@ -20,8 +20,11 @@ public abstract class ChessPiece
     private boolean isAlive;
     private boolean hasNotMoved;
     
-    public ChessPiece(int xCoordinate, int yCoordinate, boolean isWhite,
-            PieceType pieceType)
+    public ChessPiece(int xCoordinate, 
+                      int yCoordinate, 
+                      boolean isWhite,
+                      PieceType pieceType
+                      )
     {
         if(ChessBoard.isValidSquare(xCoordinate,yCoordinate))
         {
@@ -73,7 +76,10 @@ public abstract class ChessPiece
         return yCoordinate;
     }
 
-    public boolean moveTo(int xCoordinate, int yCoordinate, ChessBoard chessBoard)
+    public boolean moveTo(int xCoordinate, 
+                          int yCoordinate, 
+                          ChessBoard chessBoard
+                          )
     {
         if (validMove(xCoordinate, yCoordinate, chessBoard) && 
             !isMoveBlocked(xCoordinate,yCoordinate,chessBoard))
@@ -83,7 +89,8 @@ public abstract class ChessPiece
 
             if (!chessBoard.isSquareUnoccupied(xCoordinate,yCoordinate)) 
             {
-                chessBoard.getHeldPiece(xCoordinate,yCoordinate).removePiece(chessBoard);  
+                chessBoard.getHeldPiece(xCoordinate,
+                                        yCoordinate).removePiece(chessBoard);  
             }
 
             chessBoard.setHasPiece(xCoordinate,yCoordinate,this);
@@ -95,8 +102,10 @@ public abstract class ChessPiece
         }
     }
     
-    public boolean isSquareTakeable(int xCoordinate, int yCoordinate, 
-            ChessBoard chessBoard)
+    public boolean isSquareTakeable(int xCoordinate, 
+                                    int yCoordinate, 
+                                    ChessBoard chessBoard
+                                    )
     {
         if (chessBoard.isSquareUnoccupied(xCoordinate, yCoordinate)) {
             return true;
@@ -112,8 +121,11 @@ public abstract class ChessPiece
         isAlive = false;
     }
 
-    public boolean isLinearBlocked(int xCoordinate, int yCoordinate,
-                                   ChessBoard chessBoard) {
+    public boolean isLinearBlocked(int xCoordinate, 
+                                   int yCoordinate,
+                                   ChessBoard chessBoard
+                                   ) 
+    {
         int deltaX, deltaY;
         deltaX = xCoordinate - getXCoordinate();
         deltaY = yCoordinate - getYCoordinate();
@@ -155,42 +167,62 @@ public abstract class ChessPiece
         return false;
     }
 
-    public boolean isDiagonalBlocked(int xCoordinate, int yCoordinate,
-                                     ChessBoard chessBoard) {
+    public boolean isDiagonalBlocked(int xCoordinate, 
+                                     int yCoordinate,
+                                     ChessBoard chessBoard
+                                     ) 
+    {
         int deltaX, deltaY;
         deltaX = xCoordinate - getXCoordinate();
         deltaY = yCoordinate - getYCoordinate();
 
-        if (Math.abs(deltaX) != Math.abs(deltaY)) {
+        if (Math.abs(deltaX) != Math.abs(deltaY)) 
+        {
             return true;
         }
 
-        if (deltaX == 0 && deltaY == 0) {
+        if (deltaX == 0 && deltaY == 0) 
+        {
             return true;
-        } else if (deltaX > 0) {
+        } 
+        else if (deltaX > 0) 
+        {
             if (deltaY > 0) {
-                for (int i = 1; i < deltaY; i++) {
-                    if (!chessBoard.isSquareUnoccupied(getXCoordinate() + i, getYCoordinate() + i)) {
+                for (int i = 1; i < deltaY; i++) 
+                {
+                    if (!chessBoard.isSquareUnoccupied(getXCoordinate()+i, 
+                                                       getYCoordinate()+i)) 
+                    {
                         return true;
                     }
                 }
             } else {
                 for (int i = -1; i > deltaY; i--) {
-                    if (!chessBoard.isSquareUnoccupied(getXCoordinate() - i, getYCoordinate() + i)) {
+                    if (!chessBoard.isSquareUnoccupied(getXCoordinate() - i, getYCoordinate() + i)) 
+                    {
                         return true;
                     }
                 }
             }
-        } else if (deltaY < 0) {
-            if (deltaY > 0) {
-                for (int i = 1; i < deltaY; i++) {
-                    if (!chessBoard.isSquareUnoccupied(getXCoordinate() - i, getYCoordinate() + i)) {
+        } 
+        else if (deltaY < 0) 
+        {
+            if (deltaY > 0) 
+            {
+                for (int i = 1; i < deltaY; i++) 
+                {
+                    if (!chessBoard.isSquareUnoccupied(getXCoordinate() - i, getYCoordinate() + i)) 
+                    {
                         return true;
                     }
                 }
-            } else {
-                for (int i = -1; i > deltaY; i--) {
-                    if (!chessBoard.isSquareUnoccupied(getXCoordinate() + i, getYCoordinate() + i)) {
+            } 
+            else 
+            {
+                for (int i = -1; i > deltaY; i--) 
+                {
+                    if (!chessBoard.isSquareUnoccupied(getXCoordinate() + i, getYCoordinate() + i)) 
+                    {
                         return true;
                     }
                 }
@@ -202,25 +234,23 @@ public abstract class ChessPiece
         return false;
     }
 
-    public abstract boolean isMoveBlocked(int xCoordinate, int yCoordinate,
-                                          ChessBoard chessBoard);
+    public abstract boolean isMoveBlocked(int xCoordinate, 
+                                          int yCoordinate,
+                                          ChessBoard chessBoard
+                                          );
 
-    public abstract boolean validMove(int xCoordinate, int yCoordinate,
-                                      ChessBoard chessBoard);
+    public abstract boolean validMove(int xCoordinate, 
+                                      int yCoordinate,
+                                      ChessBoard chessBoard
+                                      );
 
-    public boolean getHasNotMoved() {
+    public boolean getHasNotMoved() 
+    {
         return hasNotMoved;
     }
 
-    public void setHasMoved() {
+    public void setHasMoved() 
+    {
         hasNotMoved = false;
     }
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) 
-    {
-        // TODO code application logic here
-    }
-
 }

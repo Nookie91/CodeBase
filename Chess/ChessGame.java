@@ -36,14 +36,20 @@ public class ChessGame
                 {
                     if(player == WHITEPLAYER)
                     {
-                        pieces[player][index] = createPiece(j[0],j[1],
-                                i,true);
+                        pieces[player][index] = createPiece(j[0],
+                                                            j[1],
+                                                            i,
+                                                            true
+                                                            );
                         board.setHasPiece(j[0],j[1],pieces[player][index]);
                     }
                     else
                     {
-                        pieces[player][index] = createPiece(j[0],8-j[1],
-                                i,false);
+                        pieces[player][index] = createPiece(j[0],
+                                                            8-j[1],
+                                                            i,
+                                                            false
+                                                            );
                         board.setHasPiece(j[0],8-j[1],pieces[player][index]);
                     }
                     index ++;
