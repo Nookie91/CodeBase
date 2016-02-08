@@ -1,33 +1,42 @@
-Arrays:
-	Grow
-	Sort:
-		-Merge Sort
-		-Linear Sort
-		-Heapsort
-		-Insertion Sort
-	Search:
-		-Linear Search
-		-Binary Search
+List of Program/Project Status.
 
-Binary Search Tree:
+Completed:
+	C:
+		change_converter_1.c
+		change_converter_2.c
+		cmd_table.c
+		int_pow.c
+		unit_converter.c
+		wordcount.c
 
-Shapes:
-	2D
-		Area
-		Perimeter
-	3D
-		Volume
-		Surface Area
+	C#:
+		hello_world.cs
 
-Arrays
-Weather:
-
-Kinematics
-
-Dynamics
-
-Chess
+	Java:
 
 
+	Python:
+		merge_sort.py
+		bubble_sort.py
 
+
+Undocumented:
+	C:
+
+	C#:
+
+	Java:
+
+	Python:
+
+Unfinished:
+	C:
+
+	C#:
+
+	Java:
+		Chess: A lot more work needed. At this stage toying around with 
+			   java classes and packages.
+	Python:
+		RPG Database system: This is under its own repository. Ongoing.
 
