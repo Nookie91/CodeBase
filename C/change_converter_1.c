@@ -45,6 +45,9 @@ main(int argc, char argv)
 Call round_to_five then iterate through the denominations, if a 
 denomination can be removed from the cent total, print the number and 
 subtract it from cents.
+
+Keyword argument:
+cents -- change in cents to be factored.
 */
 void
 print_change(int cents){
@@ -91,7 +94,12 @@ print_change(int cents){
     printf("\b\b  \n");
 }
 
-// Return 1 if a coin value is smaller than cents, else return 0
+/* Return 1 if a coin value is smaller than cents, else return 0
+
+Keyword arguments:
+cents -- current cent total remaining.
+coin -- current value of coin to check.
+*/
 int
 try_one_coin(int cents, int coin){
     if (cents >= coin){
@@ -102,7 +110,11 @@ try_one_coin(int cents, int coin){
     }
 }
 
-// Return cents rounded to nearest 5.
+/* Return cents rounded to nearest 5.
+
+Keyword arguments:
+cents -- change in cents to be factored. 
+*/
 int
 round_to_five(int cents){
     if (cents % 5 >= 3)

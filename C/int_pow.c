@@ -43,6 +43,10 @@ main(int argc, char **argv)
 /* int_pow function definition
 Recursively call int_pow to calculate the exponentiation. 
 Return the result of base times based raised to the power minus one.
+
+Keyword arguments:
+base -- base value.
+power -- exponent to raise base to.
 */
 int
 int_power(int base, int power)

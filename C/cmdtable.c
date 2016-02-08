@@ -34,6 +34,7 @@ email: nick.james.cook@gmail.com
 #define bool    int
 #endif
 
+// Max array size for the table storage array
 #define TABLE_SIZE 10
 
 // Function Prototype Declaration.
@@ -193,7 +194,10 @@ main(int argc, char **argv)
     }
 }
 
-// Confirm that malloc returns a valid pointer. If not exit program.
+/* Confirm that malloc returns a valid pointer. If not exit program.
+Keyword argument:
+size -- size of space required.
+*/
 void *
 checked_malloc(int size)
 {
