@@ -12,11 +12,11 @@ import Data.List
 -- Keyword Arguments:
 -- list -- a list of Strings
 most_frequent :: [String] -> Char
-most_frequent list = mf (sort (concat list))
+most_frequent = mf . sort . concat
     where
-        mf :: [Char] -> Char
-        mf letters = mf' ' ' 0 ' ' 0 letters
-        mf' :: Char -> Int -> Char -> Int -> [Char] -> Char
+        mf :: String -> Char
+        mf = mf' ' ' 0 ' ' 0
+        mf' :: Char -> Int -> Char -> Int -> String -> Char
         mf' x _ _ _ [] = x
         mf' x n y m (z:zs)
             | x == z = mf' x (n+1) y (m+1) zs
