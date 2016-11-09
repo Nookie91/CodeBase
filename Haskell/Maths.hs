@@ -65,6 +65,7 @@ linearEquation m c = map (\x -> m * x + c)
 -- currying
 -- linearEquation m c list = [m * x + c | x <- list]
 
+
 -- Find both positive and negative roots of a number
 -- Keyword Arguments:
 -- x - number for which we are finding the roots
@@ -74,6 +75,10 @@ sqrtPM x
     | x == 0 = [0]
     | otherwise = []
 
+
+-- Find all the positive and negative square roots of a list of numbers.
+-- Keyword Arguments:
+-- list - list of numbers for which we want to find roots
 allSqrts :: (Floating a, Ord a) => [a] -> [a]
 allSqrts [] = []
 allSqrts (x:xs) = sqrtPM x ++ allSqrts xs
