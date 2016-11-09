@@ -70,3 +70,14 @@ quickSort (x:xs) = smallerSorted ++ [x] ++ largerSorted
     where
         smallerSorted = quickSort [a | a <- xs, a <= x]
         largerSorted = quickSort [a | a <- xs, a > x]
+
+transpose :: [[a]] -> [[a]]
+transpose [] = []
+transpose (x:xs) = combine [[s] | s <- x] (transpose xs)
+
+
+combine :: [[a]] -> [[a]] -> [[a]]
+combine [] [] = []
+combine [] (_:_) = error "invalid input"
+combine (x:xs) [] = x : combine xs []
+combine (x:xs) (y:ys) = (x ++ y) : combine xs ys

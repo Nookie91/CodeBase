@@ -40,3 +40,15 @@ roots a b c = [high, low]
     where
         high = (-b - sqrt (b*b - 4*a*c)) / (2*a)
         low =  (-b + sqrt (b*b - 4*a*c)) / (2*a)
+
+
+-- Take a list of number and return a triple of
+-- the length of the list, the sum of list and the sum of the
+-- squares of the list elements
+-- Keyword Arguments:
+-- list - List to be summed.
+sumList :: Num a => [a] -> (a,a,a)
+sumList [] = (0,0,0)
+sumList (x:xs) = (1 + nextLength, x + nextSum, x * x + nextSquare)
+    where
+        (nextLength, nextSum, nextSquare) = sumList xs
