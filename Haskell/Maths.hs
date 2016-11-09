@@ -52,3 +52,28 @@ sumList [] = (0,0,0)
 sumList (x:xs) = (1 + nextLength, x + nextSum, x * x + nextSquare)
     where
         (nextLength, nextSum, nextSquare) = sumList xs
+
+
+-- Apply a linear equation on a list of elements.
+-- Keyword Arguments:
+-- m - gradient of the line
+-- c - constant offset
+-- list - list of elements to apply the equation to.
+linearEquation :: Num a => a -> a -> [a] -> [a]
+linearEquation m c = map (\x -> m * x + c)
+-- This line has been removed in place of the line above which implements
+-- currying
+-- linearEquation m c list = [m * x + c | x <- list]
+
+-- Find both positive and negative roots of a number
+-- Keyword Arguments:
+-- x - number for which we are finding the roots
+sqrtPM :: (Floating a, Ord a) => a -> [a]
+sqrtPM x
+    | x > 0 = let y = sqrt x in [y, -y]
+    | x == 0 = [0]
+    | otherwise = []
+
+allSqrts :: (Floating a, Ord a) => [a] -> [a]
+allSqrts [] = []
+allSqrts (x:xs) = sqrtPM x ++ allSqrts xs

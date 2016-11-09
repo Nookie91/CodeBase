@@ -81,3 +81,16 @@ combine [] [] = []
 combine [] (_:_) = error "invalid input"
 combine (x:xs) [] = x : combine xs []
 combine (x:xs) (y:ys) = (x ++ y) : combine xs ys
+
+
+-- Apply a function between respective elements of two lists.
+-- If one list is longer than the other, ignore the elements that
+-- do not exist in the other list.
+-- Keyword Arguments:
+-- f - function to be applied
+-- x - First list
+-- y - Second list
+zWith :: (a -> b -> c) -> [a] -> [b] -> [c]
+zWith _ [] _ = []
+zWith _ _ [] = []
+zWith f (x:xs) (y:ys) = f x y : zWith f xs ys
