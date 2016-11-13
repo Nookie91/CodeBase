@@ -82,3 +82,22 @@ sqrtPM x
 allSqrts :: (Floating a, Ord a) => [a] -> [a]
 allSqrts [] = []
 allSqrts (x:xs) = sqrtPM x ++ allSqrts xs
+
+
+-- Filter all negative numbers out of a list and then sqrt the
+-- remaining. Using Higher Order functions
+-- Keyword Arguments:
+-- list - list of numbers to filter and sqrt
+filterSqrtHigher :: (Floating a, Ord a) => [a] -> [a]
+filterSqrtHigher = map (sqrt) . filter (>=0)
+
+
+-- Filter all negative numbers out of a list and then sqrt the
+-- remaining. Using no Higher Order functions
+-- Keyword Arguments:
+-- list - list of numbers to filter and sqrt
+filterSqrtLower :: (Floating a, Ord a) => [a] -> [a]
+filterSqrtLower [] = []
+filterSqrtLower (x:xs)
+    | x >= 0 = sqrt x : filterSqrtLower xs
+    | otherwise = filterSqrtLower xs
