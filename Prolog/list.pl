@@ -35,3 +35,16 @@ sumlist2([],Sum,Sum).
 sumlist2([N|Ns],Sum1,Sum) :-
     Sum2 is Sum1 + N,
     sumlist2(Ns,Sum2,Sum).
+
+
+same_elements(List1,List2) :-
+    same_elements1(List1,List2),
+    same_elements1(List2,List1).
+
+same_elements1([X|Xs],List) :-
+    member(X,List),
+    same_elements1(Xs,List).
+
+same_elements2(List1,List2) :-
+    sort(List1,Sorted),
+    sort(List2,Sorted).

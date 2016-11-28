@@ -101,3 +101,21 @@ filterSqrtLower [] = []
 filterSqrtLower (x:xs)
     | x >= 0 = sqrt x : filterSqrtLower xs
     | otherwise = filterSqrtLower xs
+
+
+-- Produce a list of the first n Fibinacci Numbers
+-- Keyword Arguments:
+-- n lenght of list of fibinacci numbers.
+fibs :: Int -> [Integer]
+fibs 0 = []
+fibs 1 = [0]
+fibs n | n > 1 = 0:1:fibs' 0 1 (n-2)
+    where
+        fibs' _ _ 0 = []
+        fibs' fpp fp m = (fpp+fp) : fibs' fp (fpp+fp) (m-1)
+
+fibs1 :: Int -> [Integer]
+fibs1 n = take n allFibs
+
+allFibs :: [Integer]
+allFibs = 0 : 1 : zipWith (+) allFibs (tail allFibs)
